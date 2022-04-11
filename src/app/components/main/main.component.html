@@ -1,0 +1,41 @@
+<div class="container-fluid main">
+    <div class="container">
+        <div class="row py-2">
+            <h2 class="text-center">Angular Todo</h2>
+        </div>
+        <div class="row py-3">
+            <div class="col-md-6">
+                <div class="input-group">
+                    <input [(ngModel)]="inputText" (keyup.enter)="changeText()" type="text" class="form-control p-2">
+                    <button (click)="changeText()" class="btn btn-success">Add Task</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="example-container">
+                    <h4>To do</h4>
+                    <div cdkDropList id="listTodo" [cdkDropListData]="todo" [cdkDropListConnectedTo]="['listProgress']" class="example-list" (cdkDropListDropped)="drop($event)">
+                        <div class="example-box" *ngFor="let item of todo" cdkDrag>{{item}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="example-container">
+                    <h4>In Progress</h4>
+                    <div cdkDropList id="listProgress" [cdkDropListData]="progress" [cdkDropListConnectedTo]="['listTodo','listDone']" class="example-list" (cdkDropListDropped)="drop($event)">
+                        <div class="example-box" *ngFor="let item of progress" cdkDrag>{{item}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="example-container">
+                    <h4>Done</h4>
+                    <div cdkDropList id="listDone" [cdkDropListData]="done" [cdkDropListConnectedTo]="['listProgress']" class="example-list" (cdkDropListDropped)="drop($event)">
+                        <div class="example-box" *ngFor="let item of done" cdkDrag>{{item}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

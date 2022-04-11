@@ -1,0 +1,6 @@
+1.Create Todo App
+2.Npm install Bootstrap
+3.Create Components (Navbar, main)
+4.Add desigin to components
+5.Add material drag and drop
+6.Add ngmodel to input
